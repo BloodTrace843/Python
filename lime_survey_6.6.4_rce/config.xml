@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <config>
+    <metadata>
+        <name>limesurvey-poc-plugin</name>
+        <type>plugin</type>
+        <version>1.0.0</version> 
+        <author>chatGPT</author>
+        <authorUrl>http://example.com</authorUrl>
+        <supportUrl>http://example.com</supportUrl>
+        <creationDate>2024-01-01</creationDate>
+        <license>GNU General Public License version 3 or later</license>
+        <description>
+    <![CDATA[Author : ...]]></description>
+    </metadata>
+
+    <compatibility>
+        <version>6.0</version>
+        <version>5.0</version>
+        <version>4.0</version>
+        <version>3.0</version>
+    </compatibility>
+    </config>
+    

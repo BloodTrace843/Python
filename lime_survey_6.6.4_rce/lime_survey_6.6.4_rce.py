@@ -28,7 +28,7 @@ The author assumes no liability and is not responsible for any misuse or damage 
 Always obtain proper authorization before conducting any testing.
 
 By using this script, you agree to use it responsibly and within the bounds of applicable laws.                                                                                                                                                                                                                                                       
-                                                                                             
+---------------------------------------------------------------------------------------------                                                                                             
                                                                                              
 
 '''
