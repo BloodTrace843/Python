@@ -34,39 +34,14 @@ By using this script, you agree to use it responsibly and within the bounds of a
 '''
     print(banner)
 
-def zip_files(file1, file2):
-    files_to_zip = [file1, file2]
+def zip_files(file_name):
+    files_to_zip = ['config.xml', file_name]
     with ZipFile('limesurvey_plugin.zip', 'w') as zip:
         for file in files_to_zip:
             zip.write(file)    
     return 'limesurvey_plugin.zip'
 
-def generate_config_xml():
-    config_xml = '''<?xml version="1.0" encoding="UTF-8"?>
-    <config>
-    <metadata>
-        <name>limesurvey-poc-plugin</name>
-        <type>plugin</type>
-        <version>1.0.0</version> 
-        <author>chatGPT</author>
-        <authorUrl>http://example.com</authorUrl>
-        <supportUrl>http://example.com</supportUrl>
-        <creationDate>2024-01-01</creationDate>
-        <license>GNU General Public License version 3 or later</license>
-        <description>
-    <![CDATA[Author : ...]]></description>
-    </metadata>
-
-    <compatibility>
-        <version>6.0</version>
-        <version>5.0</version>
-        <version>4.0</version>
-        <version>3.0</version>
-    </compatibility>
-    </config>
-    '''
-
-    with open("config.xml", "w") as file:
+    with open("config.xml", "w") as file:<
         file.write(config_xml)
 
 
@@ -152,7 +127,6 @@ if __name__ == "__main__":
     parser.add_argument("--password", required=True, help="Admin dashboard password")
     args = parser.parse_args()
 
-    generate_config_xml()
     password = args.password
     username = args.username
     url = args.target
