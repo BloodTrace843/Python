@@ -1,40 +1,33 @@
-# LimeSurvey 6.6.4 - Authenticated RCE Exploit via Plugin Upload
+# LimeSurvey Plugin Upload Exploit (PoC)
 
-> **DISCLAIMER:**  
-> This tool is provided **for educational purposes only**.  
-> The author does **not condone or support unauthorized access** or malicious activity.  
-> Use responsibly and only on systems you have **explicit permission** to test.
+This Python script automates uploading a custom plugin to a LimeSurvey instance (tested on version 6.6.4).  
+It requires admin credentials to perform the plugin upload.
 
 ---
 
-## 📌 Description
+## ⚠️ Legal Disclaimer
 
-This Python script exploits a **vulnerability in LimeSurvey version 6.6.4** that allows an **authenticated attacker** to upload a malicious plugin containing a **PHP reverse shell**. Once uploaded and activated, the attacker gains remote code execution (RCE) as the web server user.
-
-It automates:
-
-- Login to the LimeSurvey admin dashboard
-- Upload of a ZIP archive containing a malicious plugin
-- Confirmation of the plugin installation
-- Execution via direct access to the plugin's PHP payload
+**Use this script only on systems you own or have explicit permission to test. Unauthorized use or exploitation of vulnerabilities is illegal and unethical. The author is not responsible for any misuse of this tool.**
 
 ---
 
-## ⚙️ Features
+## Features
 
-- Auto-generates malicious plugin files (`config.xml` + PHP reverse shell)
-- Authenticates to LimeSurvey using provided admin credentials
-- Uploads and confirms the plugin install
-- Drops a PHP reverse shell listener for incoming connections
+- Automates login and retrieves admin session cookie
+- Generates minimal plugin config XML
+- Creates a plugin zip file including your custom PHP file
+- Uploads and installs the plugin on the LimeSurvey instance
 
 ---
 
-## 🛠 Requirements
+## Requirements
 
 - Python 3.x
-- `requests` module
+- `requests` library (`pip install requests`)
 
-Install dependencies:
+---
+
+## Usage
 
 ```bash
-pip install requests
+python3 limesurvey_plugin_upload.py --file_name your_php_file.php --target http://target-limesurvey-url --username admin --password adminpass
